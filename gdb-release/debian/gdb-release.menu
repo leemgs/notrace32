@@ -1,0 +1,3 @@
+?package(gdb-release):needs="text" title="GDB" section="Applications/Programming"\
+	hints="Debuggers" command="/usr/bin/gdb-release"
+

@@ -1,0 +1,2 @@
+shlibs:Depends=lib64ncurses5 (>= 5.7+20100313), lib64readline6 (>= 6.0), libc6-amd64 (>= 2.11)
+misc:Depends=

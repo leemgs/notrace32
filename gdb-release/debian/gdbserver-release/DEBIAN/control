@@ -1,0 +1,18 @@
+Package: gdbserver-release
+Source: gdb-release
+Version: 7.4.0.20120307
+Architecture: amd64
+Maintainer: Hui Zhu <teawater@gmail.com>
+Installed-Size: 324
+Depends: libc6 (>= 2.11)
+Section: devel
+Priority: optional
+Description: The GNU Debugger (remote server)
+ GDB is a source-level debugger, capable of breaking programs at
+ any specific line, displaying variable values, and determining
+ where errors occurred. Currently, it works for C, C++, Fortran
+ Modula 2 and Java programs. A must-have for any serious
+ programmer.
+ .
+ This package contains gdbserver.  Install this to debug remotely
+ from another system where GDB is installed.
