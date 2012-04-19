@@ -1,6 +1,6 @@
 
-          N O T R A C E 3 2  for Android-ARM
-         ===================================
+          N O T R A C E 3 2  for Android-ARM-Emulator
+         =============================================
 
 
 # TITLE
