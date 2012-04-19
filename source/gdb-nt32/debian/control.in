@@ -1,0 +1,90 @@
+Source: gdb
+Maintainer: Ubuntu Core developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Daniel Jacobowitz <dan@debian.org>
+Section: devel
+Priority: optional
+Standards-Version: 3.8.4
+Build-Depends: autoconf, libtool, texinfo (>= 4.7-2.2), texlive-base, libncurses5-dev, libreadline-dev, bison, gettext, debhelper (>= 7), dejagnu, gcj-jdk | gcj, gobjc, mig [@gnu@], cdbs (>= 0.4.17), libkvm-dev [@kfreebsd@], type-handling (>= 0.2.1), libunwind7-dev [ia64], flex | flex-old, libexpat1-dev, g++-multilib [i386 powerpc s390 sparc], lib64readline6-dev [i386 powerpc s390 sparc], python-dev, zlib1g-dev, procps, lsb-release, bzip2
+
+Package: gdb@TS@
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: gdb-doc, gdbserver [amd64 armel i386 ia64 mips mipsel powerpc s390]
+Description: The GNU Debugger
+ GDB is a source-level debugger, capable of breaking programs at
+ any specific line, displaying variable values, and determining
+ where errors occurred. Currently, it works for C, C++, Fortran,
+ Modula 2 and Java programs. A must-have for any serious
+ programmer.
+
+#Package: gdb-minimal
+#Architecture: any
+#Section: devel
+#Depends: ${shlibs:Depends}, ${misc:Depends}
+#Conflicts: gdb
+#Description: The GNU Debugger
+# GDB is a source-level debugger, capable of breaking programs at
+# any specific line, displaying variable values, and determining
+# where errors occurred. Currently, it works for C, C++, Fortran,
+# Modula 2 and Java programs. A must-have for any serious
+# programmer.
+# .
+# This package contains a minimal version of GDB with optional features
+# disabled.
+
+Package: gdb64
+Architecture: i386 powerpc s390 sparc
+Section: devel
+Depends: ${shlibs:Depends}, gdb, ${misc:Depends}
+Description: The GNU Debugger (64-bit)
+ GDB is a source-level debugger, capable of breaking programs at
+ any specific line, displaying variable values, and determining
+ where errors occurred. Currently, it works for C, C++, Fortran
+ Modula 2 and Java programs. A must-have for any serious
+ programmer.
+
+Package: gdbserver
+Architecture: amd64 armel i386 ia64 mips mipsel powerpc s390
+Section: devel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: gdb (<< 7.0.1-1)
+Description: The GNU Debugger (remote server)
+ GDB is a source-level debugger, capable of breaking programs at
+ any specific line, displaying variable values, and determining
+ where errors occurred. Currently, it works for C, C++, Fortran
+ Modula 2 and Java programs. A must-have for any serious
+ programmer.
+ .
+ This package contains gdbserver.  Install this to debug remotely
+ from another system where GDB is installed.
+
+Package: libgdb-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}, binutils-dev, libexpat1-dev, python-dev, zlib1g-dev, libncurses5-dev, libreadline-dev, gdb
+Priority: extra
+Description: The GNU Debugger (libgdb.a)
+ GDB is a source-level debugger, capable of breaking programs at
+ any specific line, displaying variable values, and determining
+ where errors occurred. Currently, it works for C, C++, Fortran
+ Modula 2 and Java programs. A must-have for any serious
+ programmer.
+ .
+ This package contains libgdb.a, the bulk of GDB as a linkable
+ library.  It is provided for an IDE which links to libgdb.a.  Please
+ do not use libgdb.a for new projects.
+
+Package: gdb-source
+Architecture: all
+Section: devel
+Depends: ${misc:Depends}, gdb
+Description: The GNU Debugger (source)
+ GDB is a source-level debugger, capable of breaking programs at
+ any specific line, displaying variable values, and determining
+ where errors occurred. Currently, it works for C, C++, Fortran
+ Modula 2 and Java programs. A must-have for any serious
+ programmer.
+ .
+ This package contains the sources and patches which are needed
+ to build GDB.

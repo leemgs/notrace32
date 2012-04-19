@@ -1,0 +1,18 @@
+Package: gdb-release-source
+Source: gdb-release
+Version: 7.4.0.20120307
+Architecture: all
+Maintainer: Hui Zhu <teawater@gmail.com>
+Installed-Size: 52
+Depends: gdb-release
+Section: devel
+Priority: optional
+Description: The GNU Debugger (source)
+ GDB is a source-level debugger, capable of breaking programs at
+ any specific line, displaying variable values, and determining
+ where errors occurred. Currently, it works for C, C++, Fortran
+ Modula 2 and Java programs. A must-have for any serious
+ programmer.
+ .
+ This package contains the sources and patches which are needed
+ to build GDB.

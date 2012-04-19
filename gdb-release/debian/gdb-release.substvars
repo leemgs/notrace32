@@ -1,2 +1,0 @@
-shlibs:Depends=libc6 (>= 2.11), libexpat1 (>= 1.95.8), libncurses5 (>= 5.7+20100313), libpython2.6 (>= 2.6), libreadline6 (>= 6.0), zlib1g (>= 1:1.2.0)
-misc:Depends=
