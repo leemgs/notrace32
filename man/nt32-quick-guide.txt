@@ -2,7 +2,7 @@
 
     Notrace32(=nt32) Quick Guide for Android ICS 4.0.3
     ===================================================
-                        2012.04.12
+                        2012.05.12
 
 * 타겟보드의 USB Gadget을 이용하여 USB Ethernet 환경 설정
 RHEL6#> ls /sys/class/net/

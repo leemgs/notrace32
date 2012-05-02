@@ -1,7 +1,7 @@
 
-          N O T R A C E 3 2  for Android-ARM-Emulator
-         =============================================
-
+          N O T R A C E 3 2   For   Android-ARM-Emulator
+         =================================================
+                      2012.05.08
 
 # TITLE
 NoTrace32: Tracepoints based debugger for debugging ARM/Linux binary on Android
