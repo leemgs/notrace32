@@ -1,6 +1,6 @@
 
-          N O T R A C E 3 2   For   Android-ARM-Emulator
-         =================================================
+          NOTRACE32 For Android/ARM Emulator
+         =====================================
                       2012.05.08
 
 # TITLE
