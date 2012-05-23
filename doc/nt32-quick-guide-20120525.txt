@@ -1,0 +1,98 @@
+
+Notrac32 Quick Howto for Android ICS4.0.3/Emulator users
+========================================================
+
+                  2012.05.25
+
+[TOC]
+1. Download NT32 software package 
+2. Target 보드&Emulator를 위한 셋팅
+3. Remote Linux PC에서  Android 커널 디버깅 
+4. Remote Linux PC에서  Android 커널 디버깅 
+5. Android ICS4.0.3/Emulator information
+
+
+
+1. Download NT32 software package 
+RHEL6#> cd /opt
+RHEL6#> git clone https://code.google.com/p/notrace32/ 
+
+2. Target 보드&Emulator를 위한 셋팅
+RHEL6#> cd /opt/android/android-sdk/system-images/android-15/armeabi-v7a/
+RHEL6#> cp  /opt/notrace32/nt32-kernel/nt32-kernel   ./kernel-qemu
+RHEL6#> ./adb   push  /opt/notrace32/bin/*      /dev/
+RHEL6#> ./adb shell 
+android#> mount –t debugfs nodev /sys/kernel/debug/
+android#> insmod /dev/nt32.ko
+android#> ls /sys/class/net
+                   eth0    lo     sit0
+android#> /dev/busybox ps -ef | /dev/busybox grep nt32d
+                   root       523     2  0 Jan01         00:00:00 [nt32d]
+android#> /dev/busybox nc  -l -p 1234 < /sys/kernel/debug/nt32
+>/sys/kernel/debug/nt32 & (goldfish)
+android#> /dev/busybox nc  -l    1234 < /sys/kernel/debug/nt32
+>/sys/kernel/debug/nt32 & (hanback)
+android#> netstat \u2013nat | grep 1234
+         tcp6       0      0 :::1234                :::*
+LISTEN
+android#>
+
+
+3. Remote Linux PC에서  Android 커널 디버깅 
+RHEL6$> sudo su
+# forward socket (adb forward <local> <remote>)
+RHEL6#> adb forward tcp:1234 tcp:1234
+RHEL6#> exit
+RHEL6#> gdb-release -ex "set gnutarget elf32-littlearm" -ex "file ./vmlinux"
+(GDB) target remote 115.145.170.236:1234  # connection your remote device
+(GDB) trace vfs_readdir
+(GDB) actions
+> connection $reg
+> end
+(GDB) tstart
+android#> ls 
+(GDB) tstop
+(GDB) tfind
+(GDB) p $reg
+
+4. Remote Linux PC에서  Android 커널 디버깅 
+RHEL6#> ls /sys/class/net/      eth0    lo     sit0
+RHEL6#> if config usb0 10.0.2.2 netmask 255.255.255.0 up
+android#> ifconfig usb0 10.0.2.15 netmask 255.255.255.0 up
+android#> route add default gw 10.0.2.2
+
+
+
+
+5. Android ICS4.0.3/Emulator information
+
+android#> cat /proc/cpuinfo
+Processor       : ARMv7 Processor rev 0 (v7l) 
+BogoMIPS        : 457.11
+Features        : swp half thumb fastmult vfp edsp neon vfpv3 
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant     : 0x0   
+CPU part        : 0xc08 
+CPU revision    : 0
+
+Hardware        : Goldfish
+Revision        : 0000  
+Serial          : 0000000000000000
+android#> 
+android#> 
+android#> 
+android#> /dev/busybox ifconfig
+eth0      Link encap:Ethernet  HWaddr 52:54:00:12:34:56  
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::5054:ff:fe12:3456/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:5816 errors:0 dropped:0 overruns:0 frame:0 
+          TX packets:4635 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2369170 (2.2 MiB)  TX bytes:361427 (352.9 KiB)
+          Interrupt:13 Base address:0x8000 DMA chan:ff
+
+
+
+END.
