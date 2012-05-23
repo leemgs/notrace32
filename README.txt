@@ -1,10 +1,11 @@
 
           NOTRACE32 For Android/ARM Emulator
          =====================================
-                      2012.05.08
+                      2012.05.25
 
 # TITLE
-NoTrace32: Tracepoints based debugger for debugging ARM/Linux binary on Android
+NoTrace32: Tracepoints based software debugger for debugging 
+           ARM/Linux binary on Android
 
 # Members
 Geunsik Lim, Andrein Ahn
@@ -14,7 +15,7 @@ Many people use H/W Trace32 in the Linux development environment.
 Actually, this equipment is used for debugging a real mobile phone based
 on Android platform.
 
-# Issue
+# Motivation
 But, Trace32 is not software solution.
 This means that we need expensive costs to purchase Trace32.
 
