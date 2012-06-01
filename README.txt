@@ -1,7 +1,7 @@
 
           NOTRACE32 For Android/ARM Emulator
          =====================================
-                      2012.05.25
+                      2012.06.02
 
 # TITLE
 NoTrace32: Tracepoints based software debugger for debugging 
