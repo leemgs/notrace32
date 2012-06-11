@@ -1,11 +1,11 @@
 
           NOTRACE32 For Android/ARM Emulator
          =====================================
-                      2012.06.02
+                      2012.06.10
 
 # TITLE
 NoTrace32: Tracepoints based software debugger for debugging 
-           ARM/Linux binary on Android
+           ARM/Linux binary on Android without any H/W equipment
 
 # Members
 Geunsik Lim, Andrein Ahn
